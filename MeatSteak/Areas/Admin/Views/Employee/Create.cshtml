@@ -1,0 +1,48 @@
+﻿
+@model EmployeeCreateVM
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Employee create</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="form-group">
+                    <label asp-for="Name">Name</label>
+                    <input asp-for="Name" class="form-control"  placeholder="Name">
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo">Photo</label>
+                    <input asp-for="Photo" class="form-control" placeholder="Photo" accept="image/*">
+                    <span asp-validation-for="Photo"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Facebook">Facebook</label>
+                    <input asp-for="Facebook" class="form-control" placeholder="Facebook">
+                    <span asp-validation-for="Facebook"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Twitter">Twitter</label>
+                    <input asp-for="Twitter" class="form-control" placeholder="Twitter">
+                    <span asp-validation-for="Twitter"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Dribbble">Dribbble</label>
+                    <input asp-for="Dribbble" class="form-control" placeholder="Dribbble">
+                    <span asp-validation-for="Dribbble"></span>
+                </div>
+
+                <div class="form-group">
+                    <select asp-for="PositionId" asp-items="new SelectList(Model.Positions,nameof(Position.Id),nameof(Position.Name))">
+                        <option disabled selected value="PositionId" placeholder="Position">
+                            Choose Position
+                        </option>
+                    </select>
+                    <span asp-validation-for="PositionId"></span>
+                </div>
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <a class="btn btn-light" asp-action="Index" asp-controller="Employee">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
